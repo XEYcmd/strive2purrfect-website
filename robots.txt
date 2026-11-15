@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xeycmd.github.io/strive2purrfect-website/sitemap.xml
