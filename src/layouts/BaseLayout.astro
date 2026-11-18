@@ -1,0 +1,73 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import { abs, u } from '../lib/base';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  noindex?: boolean;
+  minimal?: boolean;
+  jsonLd?: string;
+}
+
+const {
+  title,
+  description,
+  path,
+  image = '/assets/img/poster.jpg',
+  noindex = false,
+  minimal = false,
+  jsonLd,
+} = Astro.props;
+
+const canonical = abs(path);
+const ogImage = abs(image);
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : null}
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0e0f12" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1131" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="icon" href={u('/favicon.ico')} sizes="any" />
+    <link rel="icon" type="image/png" href={u('/assets/img/favicon-32.png')} sizes="32x32" />
+    <link rel="apple-touch-icon" href={u('/assets/img/apple-touch-icon.png')} />
+    <link rel="sitemap" href={abs('/sitemap-index.xml')} />
+    <link rel="preload" href={u('/assets/fonts/ArchivoBlack-latin.woff2')} as="font" type="font/woff2" crossorigin />
+    <script is:inline>document.documentElement.classList.add("js");</script>
+    <slot name="head" />
+    {jsonLd ? <script type="application/ld+json" set:html={jsonLd}></script> : null}
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <Header path={path} minimal={minimal} />
+    <slot />
+    {minimal ? null : <Footer />}
+    <script>
+      import '../scripts/main';
+    </script>
+  </body>
+</html>

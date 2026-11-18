@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { u } from '../lib/base';
+import { faqCount, faqGroups } from '../data/faq';
+
+const title = "常见问题｜猫二杯 · STRIVE \"2\" PURRFFECT";
+const description = "猫二杯常见问题：参赛资格、报名费用、设备与录屏、成绩提交、直播、申诉与奖品发放。";
+---
+
+<BaseLayout title={title} description={description} path="/faq/">
+<main id="main">
+    <section class="page-hero">
+      <span class="ghost-word" aria-hidden="true">FAQ</span>
+      <div class="container">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href={u('/')}>Home</a>
+          <span class="sep">/</span>
+          <span class="current">FAQ</span>
+        </nav>
+        <p class="eyebrow">FAQ / 常见问题</p>
+        <h1 class="page-title">你可能想问的。</h1>
+        <p class="page-intro">关于报名、赛制、设备与规则的常见问题。若这里没有答案，欢迎在报名开启后通过选手群联系我们。</p>
+        <dl class="page-meta">
+          <div class="page-meta-item">
+            <dt>Questions / 问题</dt>
+            <dd>{faqCount} 条</dd>
+          </div>
+          <div class="page-meta-item">
+            <dt>Updated / 更新</dt>
+            <dd>2026.11</dd>
+          </div>
+          <div class="page-meta-item">
+            <dt>Status / 状态</dt>
+            <dd>筹备中</dd>
+          </div>
+          <div class="page-meta-item">
+            <dt>Contact / 联系</dt>
+            <dd>待公布</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        {faqGroups.map((group) => (
+          <div class="faq-group reveal">
+            <div class="faq-group-head">
+              <span class="faq-group-no">{group.no}</span>
+              <h2 class="faq-group-title">{group.title}</h2>
+            </div>
+
+            {group.items.map((item) => (
+              <details class="faq-item">
+                <summary>{item.q}<span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer">
+                  {item.body.map((paragraph) => <p>{paragraph}</p>)}
+                  {item.link && (
+                    <p>
+                      {item.link.before}
+                      <a href={u(item.link.href)}>{item.link.label}</a>
+                      {item.link.after}
+                    </p>
+                  )}
+                </div>
+              </details>
+            ))}
+          </div>
+        ))}
+
+        <div class="entry-status reveal" style="margin-top: clamp(44px, 6vw, 72px);">
+          <div class="entry-status-top">
+            <p class="eyebrow">Still Have Questions? / 还有问题？</p>
+            <span class="tag tag--live">Contact</span>
+          </div>
+          <h2 class="entry-status-title" style="font-size: clamp(1.8rem, 3.6vw, 3.4rem);">还有问题？先看看赛程。</h2>
+          <p class="entry-status-copy">组委会联系方式将在报名开启后与选手群一同公布。现在可以先查看赛程与规则，或关注本站后续公告。</p>
+          <div class="entry-status-foot">
+            <p>Contact / 待公布</p>
+            <div class="end-cta-actions">
+              <a class="btn btn--primary" href={u('/schedule/')}>查看赛程 <span class="btn-arrow">↗</span></a>
+              <a class="btn btn--ghost" href={u('/register/')}>报名信息 <span class="btn-arrow">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

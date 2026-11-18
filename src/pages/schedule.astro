@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { u } from '../lib/base';
+import { formatRows, prizes, timeline } from '../data/schedule';
+
+const title = "赛程与奖项｜猫二杯 · STRIVE \"2\" PURRFFECT";
+const description = "猫二杯赛事时间线、赛制与奖项设置。目前处于筹备阶段，具体日期、曲池、晋级名额与奖品将在报名开启前公布。";
+---
+
+<BaseLayout title={title} description={description} path="/schedule/">
+<main id="main">
+    <section class="page-hero">
+      <span class="ghost-word" aria-hidden="true">SCHEDULE</span>
+      <div class="container">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href={u('/')}>Home</a>
+          <span class="sep">/</span>
+          <span class="current">Schedule</span>
+        </nav>
+        <p class="eyebrow">Schedule &amp; Prizes / 赛程与奖项</p>
+        <h1 class="page-title">赛程与奖项</h1>
+        <p class="page-intro">目前处于筹备阶段。以下为拟定流程，具体日期、曲池、晋级名额与奖品将在报名开启前公布。请以最终公告为准。</p>
+        <dl class="page-meta">
+          <div class="page-meta-item">
+            <dt>Status / 状态</dt>
+            <dd>筹备中</dd>
+          </div>
+          <div class="page-meta-item">
+            <dt>Version / 版本</dt>
+            <dd>草案 0.1</dd>
+          </div>
+          <div class="page-meta-item">
+            <dt>Format / 形式</dt>
+            <dd>线上个人赛</dd>
+          </div>
+          <div class="page-meta-item">
+            <dt>Updated / 更新</dt>
+            <dd>2026.11</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">01 / Timeline</p>
+          <div class="section-head-right">
+            <h2 class="section-title">赛事时间线</h2>
+            <p class="section-lead">从报名到结果公布，一共四个阶段。所有时间目前均为「待公布」，我们不想用一个假日期让你空等。</p>
+          </div>
+        </div>
+
+        <div class="timeline">
+          {timeline.map((item) => (
+            <article class="timeline-item reveal">
+              <p class="timeline-no">{item.no}</p>
+              <div>
+                <h3 class="timeline-title">{item.title}</h3>
+                <p class="timeline-en">{item.en}</p>
+                <p class="timeline-desc">{item.desc}</p>
+              </div>
+              <div class="timeline-time">
+                {item.time}<br />
+                <span class={item.live ? 'tag tag--red' : 'tag'}>{item.tag}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="notice reveal" style="margin-top: 30px;">
+          <span class="notice-mark">NOTE</span>
+          <p><strong>时间以最终公告为准。</strong>组委会有权根据报名人数、参赛者时间与不可抗力调整赛程。任何调整都会提前在官网和选手群公告。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt section--line" id="format">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">02 / Format</p>
+          <div class="section-head-right">
+            <h2 class="section-title">赛制说明</h2>
+            <p class="section-lead">两个项目分别排名、分别晋级。以下为框架，具体规则以规则页与最终规则书为准。</p>
+          </div>
+        </div>
+
+        <div class="format-table-wrap reveal">
+          <table class="format-table">
+            <thead>
+              <tr>
+                <th scope="col">项目</th>
+                <th scope="col">预选</th>
+                <th scope="col">决赛</th>
+                <th scope="col">晋级名额</th>
+              </tr>
+            </thead>
+            <tbody>
+              {formatRows.map((row) => (
+                <tr>
+                  <td>{row.project}</td>
+                  <td>{row.qualifier[0]}<br />{row.qualifier[1]}</td>
+                  <td>{row.final[0]}<br />{row.final[1]}</td>
+                  <td>{row.slots}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="split" style="margin-top: clamp(44px, 6vw, 72px);">
+          <div class="reveal">
+            <p class="section-label">Version &amp; Pools</p>
+            <h3 class="section-title" style="margin-top: 18px; font-size: clamp(1.5rem, 2.5vw, 2.2rem);">比赛版本与曲池</h3>
+          </div>
+          <div class="prose reveal">
+            <p>比赛使用的游戏版本、曲目难度、曲池数量与提交次数，将在报名开启时随规则书一并公布。我们希望在保证公平的前提下，给参赛者留出足够的准备时间。</p>
+            <p>曲池会尽量兼顾不同水平的玩家，也会留一两首「硬骨头」。如果你有特别想看到的曲目，欢迎在报名开启后通过选手群告诉我们。</p>
+            <p><a class="arrow-link" href={u('/rules/')}>查看比赛规则草案 <span>↗</span></a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--line" id="prizes">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">03 / Prizes</p>
+          <div class="section-head-right">
+            <h2 class="section-title">奖项设置</h2>
+            <p class="section-lead">奖品池与纪念品正在筹备中。我们更希望每个人都能带走一点东西，而不只是前三名。</p>
+          </div>
+        </div>
+
+        <div class="prizes">
+          {prizes.map((prize) => (
+            <article
+              class:list={['prize', 'reveal', { 'prize--champion': prize.champion }]}
+              style={prize.delay ? `--delay: ${prize.delay}` : undefined}
+            >
+              <p class="prize-rank">{prize.rank}</p>
+              <p class="prize-label">{prize.label}</p>
+              <p class="prize-en">{prize.en}</p>
+              <p class="prize-note">{prize.note}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="notice reveal" style="margin-top: 30px;">
+          <span class="notice-mark">SPONSOR</span>
+          <p><strong>欢迎赞助与合作。</strong>如果你愿意为比赛提供奖品、周边或技术支持，欢迎在报名开启后联系组委会（联系方式待公布）。所有赞助会公开说明，不换取裁判或赛制上的特殊待遇。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight section--line">
+      <div class="container">
+        <div class="end-cta reveal">
+          <div class="end-cta-copy">
+            <p class="eyebrow">Next / 下一步</p>
+            <h2 class="section-title">规则写清楚了，才敢请你来。</h2>
+            <p class="section-lead">比赛规则目前为草案版本，涵盖通用规则、两个项目的细则、公平竞技与申诉流程。</p>
+          </div>
+          <div class="end-cta-actions">
+            <a class="btn btn--primary" href={u('/rules/')}>查看比赛规则 <span class="btn-arrow">↗</span></a>
+            <a class="btn btn--ghost" href={u('/register/')}>报名信息 <span class="btn-arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

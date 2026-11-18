@@ -1,0 +1,52 @@
+---
+import { u } from '../lib/base';
+import { site } from '../data/site';
+
+interface Props {
+  path: string;
+  minimal?: boolean;
+}
+
+const { path, minimal = false } = Astro.props;
+
+const isActive = (href: string) => (href === '/' ? path === '/' : path === href);
+---
+
+{minimal ? (
+  <header class="site-header is-scrolled">
+    <div class="header-inner">
+      <a class="brand" href={u('/')} aria-label="猫二杯首页">
+        <img class="brand-mark" src={u('/assets/img/logo-white.png')} alt="" width="729" height="638" />
+        <span class="brand-name">猫二杯</span>
+        <span class="brand-sub">Strive &quot;2&quot; Purrfect</span>
+      </a>
+      <a class="header-entry" href={u('/')} style="margin-left: auto;">返回首页 <span class="dot"></span></a>
+    </div>
+  </header>
+) : (
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href={u('/')} aria-label="猫二杯首页">
+        <img class="brand-mark" src={u('/assets/img/logo-white.png')} alt="" width="729" height="638" />
+        <span class="brand-name">猫二杯</span>
+        <span class="brand-sub">Strive &quot;2&quot; Purrfect</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        {site.nav.map((item) => (
+          <a
+            href={u(item.href)}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            data-index={item.index}
+          >
+            <span class="nav-index">{item.index}</span>{item.label}
+          </a>
+        ))}
+        <span class="nav-mobile-note">校园民间音游比赛 · Phigros × Phira<br />报名通道筹备中</span>
+      </nav>
+      <a class="header-entry" href={u('/register/')}>报名 <span class="dot"></span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+)}

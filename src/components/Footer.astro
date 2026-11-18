@@ -1,0 +1,52 @@
+---
+import { u } from '../lib/base';
+import { site, type FooterLink } from '../data/site';
+
+const columns: Array<{ title: string; links: FooterLink[]; label: string }> = [
+  { title: '赛事 / Event', links: site.footerEvent, label: '赛事导航' },
+  { title: '参与 / Join', links: site.footerJoin, label: '参与导航' },
+  { title: '关注 / Follow', links: site.footerFollow, label: '关注渠道' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="footer-brand-mark" src={u('/assets/img/logo-white.png')} alt="" width="729" height="638" loading="lazy" />
+        <p class="footer-wordmark">猫二杯</p>
+        <p class="footer-en">STRIVE &quot;2&quot; PURRFFECT</p>
+        <p class="footer-tag">校园民间音游比赛 · Phigros × Phira</p>
+      </div>
+      {columns.map((column) => (
+        <div class="footer-col">
+          <p class="footer-col-title">{column.title}</p>
+          <nav class="footer-links" aria-label={column.label}>
+            {column.links.map((link) =>
+              link.href ? (
+                <a href={u(link.href)}>{link.label}</a>
+              ) : (
+                <span class="footer-link-muted">{link.label}</span>
+              )
+            )}
+          </nav>
+        </div>
+      ))}
+    </div>
+
+    <div class="footer-barcode" aria-hidden="true">
+      <img src={u('/assets/img/barcode-white.png')} alt="" width="797" height="350" />
+    </div>
+
+    <div class="footer-bottom">
+      <p>{site.copyright}</p>
+      <button class="footer-status" type="button" data-cold-toggle aria-pressed="false" aria-label="赛事状态：火热筹备中，点击切换" title="点一下试试">
+        <span class="status-dot"></span>
+        <span data-status-label>当前状态：火热筹备中</span>
+      </button>
+      <a class="footer-top-link" href="#top">回到顶部 <span>↑</span></a>
+    </div>
+
+    <p class="footer-disclaimer">{site.disclaimer}</p>
+  </div>
+</footer>

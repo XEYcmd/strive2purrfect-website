@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { u } from '../lib/base';
+
+const title = "404 · 这个音符掉出了判定线｜猫二杯";
+const description = "页面不存在。回到猫二杯首页，继续打歌。";
+---
+
+<BaseLayout title={title} description={description} path="/404/" minimal noindex>
+<main id="main">
+    <section class="error-page">
+      <div class="error-inner">
+        <p class="error-code" aria-hidden="true">404</p>
+        <img class="error-mark" src={u('/assets/img/logo-white.png')} alt="" width="729" height="638">
+        <h1 class="error-title">这个音符掉出了判定线。</h1>
+        <p class="error-copy">你要找的页面不存在，或者已经被移动了。别担心，这不算 Miss，只是换一首歌而已。</p>
+        <div class="error-actions">
+          <a class="btn btn--primary" href={u('/')}>回到首页 <span class="btn-arrow">↗</span></a>
+          <a class="btn btn--ghost" href={u('/faq/')}>看看 FAQ <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

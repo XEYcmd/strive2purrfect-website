@@ -1,70 +1,14 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>猫二杯 · STRIVE "2" PURRFFECT｜校园民间音游比赛</title>
-  <meta name="description" content="猫二杯（STRIVE &quot;2&quot; PURRFFECT）是面向校园与社区音游玩家的民间线上音游比赛，设 Phigros 与 Phira 两个项目。赛事筹备中，报名信息即将公布。">
-  <link rel="canonical" href="https://xeycmd.github.io/strive2purrfect-website/">
-  <meta name="theme-color" content="#0e0f12">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:site_name" content="猫二杯 · STRIVE &quot;2&quot; PURRFFECT">
-  <meta property="og:title" content="猫二杯 · STRIVE &quot;2&quot; PURRFFECT">
-  <meta property="og:description" content="校园民间音游比赛。Phigros × Phira，线上开赛。赛事筹备中，敬请期待。">
-  <meta property="og:url" content="https://xeycmd.github.io/strive2purrfect-website/">
-  <meta property="og:image" content="https://xeycmd.github.io/strive2purrfect-website/assets/img/poster.jpg">
-  <meta property="og:image:width" content="1600">
-  <meta property="og:image:height" content="1131">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="猫二杯 · STRIVE &quot;2&quot; PURRFFECT">
-  <meta name="twitter:description" content="校园民间音游比赛。Phigros × Phira，线上开赛。赛事筹备中，敬请期待。">
-  <meta name="twitter:image" content="https://xeycmd.github.io/strive2purrfect-website/assets/img/poster.jpg">
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="assets/img/favicon-32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="preload" href="assets/fonts/ArchivoBlack-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script>document.documentElement.classList.add("js");</script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "猫二杯 · STRIVE \"2\" PURRFFECT",
-    "alternateName": "猫二杯",
-    "url": "https://xeycmd.github.io/strive2purrfect-website/",
-    "description": "面向校园与社区音游玩家的民间线上音游比赛，设 Phigros 与 Phira 两个项目。",
-    "inLanguage": "zh-CN"
-  }
-  </script>
-</head>
-<body id="top">
-  <a class="skip-link" href="#main">跳到主要内容</a>
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { abs, u } from '../lib/base';
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="猫二杯首页">
-        <img class="brand-mark" src="assets/img/logo-white.png" alt="" width="729" height="638">
-        <span class="brand-name">猫二杯</span>
-        <span class="brand-sub">Strive &quot;2&quot; Purrfect</span>
-      </a>
-      <nav class="site-nav" id="site-nav" aria-label="主导航">
-        <a href="index.html" aria-current="page" data-index="01"><span class="nav-index">01</span>首页</a>
-        <a href="event.html" data-index="02"><span class="nav-index">02</span>赛事</a>
-        <a href="schedule.html" data-index="03"><span class="nav-index">03</span>赛程</a>
-        <a href="rules.html" data-index="04"><span class="nav-index">04</span>规则</a>
-        <a href="register.html" data-index="05"><span class="nav-index">05</span>报名</a>
-        <a href="faq.html" data-index="06"><span class="nav-index">06</span>FAQ</a>
-        <span class="nav-mobile-note">校园民间音游比赛 · Phigros × Phira<br>报名通道筹备中</span>
-      </nav>
-      <a class="header-entry" href="register.html">报名 <span class="dot"></span></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
-        <span></span><span></span>
-      </button>
-    </div>
-  </header>
+const title = "猫二杯 · STRIVE \"2\" PURRFFECT｜校园民间音游比赛";
+const description = "猫二杯（STRIVE \"2\" PURRFFECT）是面向校园与社区音游玩家的民间线上音游比赛，设 Phigros 与 Phira 两个项目。赛事筹备中，报名信息即将公布。";
+const jsonLd = JSON.stringify({"@context": "https://schema.org", "@type": "WebSite", "name": "猫二杯 · STRIVE \"2\" PURRFFECT", "alternateName": "猫二杯", "url": abs('/'), "description": "面向校园与社区音游玩家的民间线上音游比赛，设 Phigros 与 Phira 两个项目。", "inLanguage": "zh-CN"});
+---
 
-  <main id="main">
+<BaseLayout title={title} description={description} path="/" jsonLd={jsonLd}>
+<main id="main">
     <!-- Hero -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
@@ -80,7 +24,7 @@
         <div class="hero-lockup">
           <h1 class="lockup-cn" id="hero-title">猫二杯</h1>
           <div class="lockup-mark">
-            <img src="assets/img/logo-white.png" alt="猫二杯三角 Logo" width="729" height="638">
+            <img src={u('/assets/img/logo-white.png')} alt="猫二杯三角 Logo" width="729" height="638">
           </div>
           <p class="lockup-en">
             <span>STRIVE <span class="quote">&quot;2&quot;</span></span>
@@ -97,8 +41,8 @@
         <p class="hero-description">一场由玩家发起、为玩家而办的 Phigros × Phira 线上赛事。<br>认真打歌，也认真认识同好。</p>
 
         <div class="hero-actions">
-          <a class="btn btn--primary" href="event.html">了解赛事 <span class="btn-arrow">↗</span></a>
-          <a class="btn btn--ghost" href="schedule.html">查看赛程 <span class="btn-arrow">→</span></a>
+          <a class="btn btn--primary" href={u('/event/')}>了解赛事 <span class="btn-arrow">↗</span></a>
+          <a class="btn btn--ghost" href={u('/schedule/')}>查看赛程 <span class="btn-arrow">→</span></a>
           <button class="status-toggle" type="button" data-cold-toggle aria-pressed="false" aria-label="赛事状态：火热筹备中，点击切换" title="点一下试试">
             <span class="status-dot"></span>
             <span class="status-hot">火热筹备中</span>
@@ -175,7 +119,7 @@
             <p>比赛设 Phigros 与 Phira 两个项目，采用线上预选与决赛。没有复杂的门槛，也不看你的设备有多贵——只看你愿不愿意为一次 Perfect 反复重来。</p>
             <p>这大概就是「STRIVE」的意思：反复尝试，直到接近完美。至于「2」和「PURRFFECT」，是我们夹带的一点私货。</p>
             <div class="about-signature">
-              <img class="sig-mark" src="assets/img/logo-white.png" alt="" width="729" height="638" loading="lazy">
+              <img class="sig-mark" src={u('/assets/img/logo-white.png')} alt="" width="729" height="638" loading="lazy">
               <span>猫二杯赛事组 / 2026</span>
             </div>
           </div>
@@ -240,12 +184,12 @@
         </div>
 
         <div class="games-grid">
-          <a class="game-card game-card--phigros reveal" href="rules.html#phigros">
+          <a class="game-card game-card--phigros reveal" href={u('/rules/#phigros')}>
             <div class="game-card-top">
               <span class="game-card-index">Project 01 / Mobile</span>
               <span class="tag">单人赛</span>
             </div>
-            <img class="game-card-watermark" src="assets/img/logo-black.png" alt="" width="729" height="638" loading="lazy" aria-hidden="true">
+            <img class="game-card-watermark" src={u('/assets/img/logo-black.png')} alt="" width="729" height="638" loading="lazy" aria-hidden="true">
             <div class="game-card-body">
               <h3 class="game-card-name">Phigros</h3>
               <p class="game-card-meta">iOS · Android / 指定曲池 / 线上</p>
@@ -261,12 +205,12 @@
             </div>
           </a>
 
-          <a class="game-card game-card--phira reveal" href="rules.html#phira" style="--delay: .08s">
+          <a class="game-card game-card--phira reveal" href={u('/rules/#phira')} style="--delay: .08s">
             <div class="game-card-top">
               <span class="game-card-index">Project 02 / Multi-platform</span>
               <span class="tag">单人赛</span>
             </div>
-            <img class="game-card-watermark" src="assets/img/logo-halftone-white.png" alt="" width="862" height="754" loading="lazy" aria-hidden="true">
+            <img class="game-card-watermark" src={u('/assets/img/logo-halftone-white.png')} alt="" width="862" height="754" loading="lazy" aria-hidden="true">
             <div class="game-card-body">
               <h3 class="game-card-name">Phira</h3>
               <p class="game-card-meta">多平台 / 指定谱池 / 线上</p>
@@ -322,7 +266,7 @@
 
         <div class="format-note reveal">
           <p>赛程与规则仍在校对中，最终版本以报名公告为准。</p>
-          <a class="arrow-link" href="schedule.html">查看完整赛程 <span>↗</span></a>
+          <a class="arrow-link" href={u('/schedule/')}>查看完整赛程 <span>↗</span></a>
         </div>
       </div>
     </section>
@@ -335,7 +279,7 @@
             <p class="section-label">04 / Bulletin</p>
             <h2 class="news-intro-title">最新公告</h2>
             <p>赛事正在筹备中。报名开放、曲池公布、规则更新，都会第一时间出现在这里。</p>
-            <a class="btn btn--ghost btn--small" href="register.html" style="margin-top: 24px;">报名信息 <span class="btn-arrow">↗</span></a>
+            <a class="btn btn--ghost btn--small" href={u('/register/')} style="margin-top: 24px;">报名信息 <span class="btn-arrow">↗</span></a>
           </div>
 
           <div class="news-list">
@@ -370,7 +314,7 @@
 
     <!-- CTA -->
     <section class="cta-band">
-      <img class="cta-watermark" src="assets/img/logo-white.png" alt="" width="729" height="638" loading="lazy" aria-hidden="true">
+      <img class="cta-watermark" src={u('/assets/img/logo-white.png')} alt="" width="729" height="638" loading="lazy" aria-hidden="true">
       <div class="container cta-band-inner">
         <div>
           <p class="cta-kicker">Entry / 参赛</p>
@@ -379,66 +323,12 @@
         <div class="cta-copy">
           <p>报名通道尚未开启。关注本站后续公告，第一时间获取开赛、曲池与规则更新。</p>
           <div class="cta-actions">
-            <a class="btn btn--primary" href="register.html">报名信息 <span class="btn-arrow">↗</span></a>
-            <a class="btn btn--ghost" href="faq.html">常见问题 <span class="btn-arrow">→</span></a>
+            <a class="btn btn--primary" href={u('/register/')}>报名信息 <span class="btn-arrow">↗</span></a>
+            <a class="btn btn--ghost" href={u('/faq/')}>常见问题 <span class="btn-arrow">→</span></a>
           </div>
           <p class="cta-fineprint">Individual / 个人参赛 · Online / 线上进行 · Phigros / Phira</p>
         </div>
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <img class="footer-brand-mark" src="assets/img/logo-white.png" alt="" width="729" height="638" loading="lazy">
-          <p class="footer-wordmark">猫二杯</p>
-          <p class="footer-en">STRIVE &quot;2&quot; PURRFFECT</p>
-          <p class="footer-tag">校园民间音游比赛 · Phigros × Phira</p>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col-title">赛事 / Event</p>
-          <nav class="footer-links" aria-label="赛事导航">
-            <a href="event.html">赛事介绍</a>
-            <a href="schedule.html">赛程与奖项</a>
-            <a href="rules.html">比赛规则</a>
-          </nav>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col-title">参与 / Join</p>
-          <nav class="footer-links" aria-label="参与导航">
-            <a href="register.html">报名信息</a>
-            <a href="faq.html">常见问题</a>
-            <span class="footer-link-muted">联系组委会 · 待公布</span>
-          </nav>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col-title">关注 / Follow</p>
-          <nav class="footer-links" aria-label="关注渠道">
-            <span class="footer-link-muted">QQ 群 · 待公布</span>
-            <span class="footer-link-muted">Bilibili · 待公布</span>
-          </nav>
-        </div>
-      </div>
-
-      <div class="footer-barcode" aria-hidden="true">
-        <img src="assets/img/barcode-white.png" alt="" width="797" height="350">
-      </div>
-
-      <div class="footer-bottom">
-        <p>© 2026 猫二杯赛事组 · 保留所有权利</p>
-        <button class="footer-status" type="button" data-cold-toggle aria-pressed="false" aria-label="赛事状态：火热筹备中，点击切换" title="点一下试试">
-          <span class="status-dot"></span>
-          <span data-status-label>当前状态：火热筹备中</span>
-        </button>
-        <a class="footer-top-link" href="#top">回到顶部 <span>↑</span></a>
-      </div>
-
-      <p class="footer-disclaimer">本站为玩家自发组织的民间赛事网站，与 Phigros、Phira 官方无隶属关系。相关游戏名称、商标及素材版权归各自权利人所有。站内赛事日期、赛制与奖品信息以最终公告为准。</p>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js" defer></script>
-</body>
-</html>
+</BaseLayout>

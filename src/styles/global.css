@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "Archivo Black";
-  src: url("../fonts/ArchivoBlack-latin.woff2") format("woff2");
+  src: url("/assets/fonts/ArchivoBlack-latin.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: "Noto Sans SC Display";
-  src: url("../fonts/NotoSansSC-subset-01.woff2") format("woff2");
+  src: url("/assets/fonts/NotoSansSC-subset-01.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: "Noto Sans SC Display";
-  src: url("../fonts/NotoSansSC-subset-02.woff2") format("woff2");
+  src: url("/assets/fonts/NotoSansSC-subset-02.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -33,7 +33,7 @@
 
 @font-face {
   font-family: "Noto Sans SC Display";
-  src: url("../fonts/NotoSansSC-subset-03.woff2") format("woff2");
+  src: url("/assets/fonts/NotoSansSC-subset-03.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -99,7 +99,7 @@ body::after {
   inset: 0;
   z-index: 9000;
   pointer-events: none;
-  background-image: url("../img/noise.png");
+  background-image: url("/assets/img/noise.png");
   background-size: 160px 160px;
   opacity: 0.45;
   mix-blend-mode: soft-light;
@@ -1045,7 +1045,7 @@ body.nav-open .nav-toggle span:nth-child(2) {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: url("../img/pattern-blue.webp");
+  background-image: url("/assets/img/pattern-blue.webp");
   background-size: 680px;
   opacity: 0.5;
   mix-blend-mode: overlay;
@@ -1363,7 +1363,7 @@ body.nav-open .nav-toggle span:nth-child(2) {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: url("../img/pattern-blue.webp");
+  background-image: url("/assets/img/pattern-blue.webp");
   background-size: 760px;
   opacity: 0.55;
   mix-blend-mode: overlay;
@@ -1691,7 +1691,7 @@ body.nav-open .nav-toggle span:nth-child(2) {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background-image: url("../img/pattern-blue.webp");
+  background-image: url("/assets/img/pattern-blue.webp");
   background-size: cover;
   background-position: center;
   opacity: 0.75;
@@ -2558,7 +2558,7 @@ body.nav-open .nav-toggle span:nth-child(2) {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../img/pattern-blue.webp");
+  background-image: url("/assets/img/pattern-blue.webp");
   background-size: 520px;
   opacity: 0.5;
   mix-blend-mode: overlay;
@@ -2802,7 +2802,7 @@ body.nav-open .nav-toggle span:nth-child(2) {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background-image: url("../img/pattern-blue.webp");
+  background-image: url("/assets/img/pattern-blue.webp");
   background-size: cover;
   background-position: center;
   opacity: 0.8;
